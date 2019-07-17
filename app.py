@@ -6,9 +6,8 @@ app = Flask(__name__)
 
 
 
-@app.route('/weather', methods=['POST'])
-def get_weather():
-    city = request.form.get('city')
+@app.route('/<city>')
+def get_weather(city):
     data = weather.get_weather(city)
     return data
 
