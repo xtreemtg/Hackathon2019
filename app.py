@@ -1,7 +1,11 @@
-from flask import Flask
+from flask import Flask, request, send_from_directory
 import weather
 
+
 app = Flask(__name__)
+
+
+
 
 
 @app.route('/weather/<city>')
