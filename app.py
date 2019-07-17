@@ -1,9 +1,7 @@
-from flask import Flask, request, jsonify
-
+from flask import Flask
 import weather
 
 app = Flask(__name__)
-
 
 
 @app.route('/<city>')
