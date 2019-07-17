@@ -13,4 +13,3 @@ def directions(source, dest):
     by_bus = gm.directions(source, dest, mode="transit")
     by_foot = gm.directions(source, dest, mode="walking")
     return by_bus, by_foot
-
