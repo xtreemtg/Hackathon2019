@@ -1,0 +1,109 @@
+.main-part {
+    height: 800px;
+    background-image: url("https://farm2.staticflickr.com/1672/25722743422_2bef0e0fda_b.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-header{
+    color: rgb(100, 103, 146);
+    font-weight: 800;
+    font-size: 5.5rem; 
+    text-align: center;
+    padding-top: 4rem;
+}
+
+.main-sub-header{
+    color: rgb(86, 28, 139);
+    margin-top: 2rem; 
+    background-color: rgb(213, 213, 236);
+    opacity: 0.6; 
+    display: inline-block;
+    border-radius: 10px; 
+}
+
+.main-text{
+    color: rgb(234, 238, 22);
+    width: 40%;
+    min-width: 350px;
+    text-align: center;
+    background-color: rgb(86, 28, 139);
+    opacity: 0.7; 
+    padding: 1rem; 
+
+}
+
+.topics{
+    display: flex;
+    justify-content: space-around;
+}
+
+.topic-child{
+    justify-content: space-between;
+    flex-grow: 1;
+    height: 200px;
+    text-align: center;
+    color: white;
+    font-size: 1rem; 
+    font-weight: 800;
+    align-content: center;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.river{
+    background-image: url("https://3snpdc2ba9m5uwuk62n8cs84-wpengine.netdna-ssl.com/wp-content/uploads/2014/08/san-pedro-creek-rendering-canal_sara.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.landmarks {
+    background-image: url("https://media-cdn.tripadvisor.com/media/photo-s/02/2d/ea/08/brussels-old-town-center.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.park {
+    background-image: url("http://oldmos.ru/old/upload/photos/2/e/e/th_2ee2d994f66a2356dea4fc22b8bc6262.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.city-river{
+    background-image: url("https://api.parkseason.ru/images/styles/1200_500/f1/4f/0e3908d92ee36d1ad43bfb811924222f56815a5e8f450243947072.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+}
+
+.river-main{
+    color: white; 
+    background: none; 
+    font-size: 3rem; 
+}
+
+.city-landmarks{
+    background-image: url("https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1487960287/philadelphia-pennsylvania-city-hall-AFPARCHITECTURE0217.jpg?itok=7FF_JecT");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+
+}
+
+.city-park{
+    background-image: url("https://www.planetware.com/photos-large/USNY/new-york-city-central-park-1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+
+}
