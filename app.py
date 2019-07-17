@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/<city>')
 def get_weather(city):
     data = weather.get_weather(city)
-    return data
+    return str((data['main']['temp'], data['main']['humidity'], data['weather'][0]['description']))
 
 
 if __name__ == "__main__":
