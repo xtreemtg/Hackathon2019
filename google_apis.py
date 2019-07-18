@@ -29,13 +29,13 @@ types = ['accounting', 'airport', 'amusement_park', 'aquarium', 'art_gallery', '
          'synagogue', 'train_station', 'taxi_stand', 'transit_station', 'travel_agency', 'veterinary_care', 'zoo']
 
 
-def directions(source, dest):
+def directions(origin, destination, *waypoints):
     """
-    Return pair of directions: by_bus, by_foot
-    :param source:
-    :param dest:
+    Return directions by foot, through waypoints, optimized.
+    :param origin:
+    :param destination:
     """
     gm = googlemaps.Client(key=GAPI)
-    by_bus = gm.directions(source, dest, mode="transit")
-    by_foot = gm.directions(source, dest, mode="walking")
-    return by_bus, by_foot
+    # by_bus = gm.directions(source, dest, mode="transit")
+    by_foot = gm.directions(origin, destination, waypoints=waypoints, mode="walking", optimize_waypoints=True)
+    return by_foot

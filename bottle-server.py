@@ -1,4 +1,5 @@
 from bottle import route, run, template, static_file, request
+import weather
 
 
 @route('/', method='GET')
@@ -23,6 +24,13 @@ def stylesheets(filename):
 @route('/images/<filename:re:.*\.(jpg|png|gif|ico)>', method='GET')
 def images(filename):
     return static_file(filename, root='images')
+
+
+@route('/weather/<city>', method='GET')
+def get_weather(city):
+    data = weather.get_weather(city)
+    x = str((data['main']['temp'], data['main']['humidity'], data['weather'][0]['description']))
+    return x
 
 
 def main():
