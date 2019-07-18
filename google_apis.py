@@ -53,5 +53,5 @@ def directions(origin, destination, *waypoints):
     waypoints = [list(w) for w in waypoints]
     by_foot = gm.directions(origin, destination, waypoints=waypoints, mode="walking", optimize_waypoints=True)
     legs = by_foot[0]['legs']
-    sorted_by_foot = [leg['start_location'] for leg in legs]
+    sorted_by_foot = [list(leg['start_location'].values()) for leg in legs]
     return sorted_by_foot
