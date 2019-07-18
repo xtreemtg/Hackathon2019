@@ -38,8 +38,8 @@ hackaton.routInfo = () => {
         type: "POST",
         data: myData,
         dataType: "text",
-        success: function (response) {
-            console.log(response)
+        success: function () {
+            console.log()
         },
         error: function (msg) {
             console.log("error")

@@ -14,7 +14,7 @@ def index():
 def get_info():
     location = request.forms.get('location')
     destination  = request.forms.get('destination')
-    type = request.forms.get('type')
+    type = request.forms.get('selection')
     origin, dest = get_coords(location, destination)
     landmarks = get_landmarks_in_area(origin, dest, type)
     trail = directions(location, destination, *[landmark_coords(lndmrk) for lndmrk in landmarks])
