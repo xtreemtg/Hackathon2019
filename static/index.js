@@ -8,7 +8,8 @@ hackaton.getWeather = function() {
             url: ("/weather/" + cityName),
             
             success: function (response) {
-                console.log(response)
+                let span = $('.weather-conditions');
+                span.append(`The weather condition in ${cityName} right now are: ${response}`)
             },
             error: function (msg) {
                 console.log("error")
