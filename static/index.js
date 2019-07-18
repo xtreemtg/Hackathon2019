@@ -22,15 +22,36 @@ hackaton.getWeather = function() {
 
 hackaton.routInfo = () => {
 
+
     let location = $(".current-location").val();
     let destination = $('.destination').val();
     let routeType = $('.choice-rout').val();
 
-    console.log(location, destination, routeType)
+    let myData = {
+        location: location,
+        destination: destination,
+        routeType: routeType
+    }
+
+    $.ajax({
+        url: '/getdata',
+        type: "POST",
+        data: myData,
+        dataType: "text",
+        success: function (response) {
+            console.log(response)
+        },
+        error: function (msg) {
+            console.log("error")
+        },
+        complete: function (response, status) {
+            console.log("complete")
+        }
+      
+    })
+
 }
 
-
-
-
 $(".btn-success").click(hackaton.getWeather);
-$(".btn-primary").click(hackaton.routInfo);
+$(".btn-primary").click(hackaton.routInfo)
+
