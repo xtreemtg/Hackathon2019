@@ -1,10 +1,13 @@
 import googlemaps
 
-INTERESTING_LANDMARK_TYPES = ['amusement_park', 'aquarium', 'art_gallery', 'bar', 'book_store', 'bowling_alley', 'cafe',
-                              'casino', 'church', 'city_hall', 'embassy', 'hindu_temple', 'insurance_agency', 'library',
-                              'local_government_office', 'mosque', 'museum', 'night_club', 'park', 'restaurant',
-                              'shopping_mall', 'stadium', 'synagogue', 'zoo']
-GAPI = 'AIzaSyB1SlyO9n2uirPXWqL9O6k0k0Gx74Sqs6s'
+
+
+OPTIONS = {
+    'green': ['amusement_park','bar', 'book_store', 'city_hall', 'embassy',  'insurance_agency', 'library','restaurant'],
+    'water': ['liquor_store', 'mosque', 'local_government_office',  'museum',  'park',],
+    'sea': ['aquarium','shopping_mall', 'stadium', 'synagogue', 'zoo'],
+    'city-landscape': ['art_gallery', 'bowling_alley', 'cafe','church','hindu_temple','mosque','night_club',]
+}
 
 
 def nearby_landmarks(coordinates, radius, type_=INTERESTING_LANDMARK_TYPES):

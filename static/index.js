@@ -20,4 +20,17 @@ hackaton.getWeather = function() {
         })
 }
 
+hackaton.routInfo = () => {
+
+    let location = $(".current-location").val();
+    let destination = $('.destination').val();
+    let routeType = $('.choice-rout').val();
+
+    console.log(location, destination, routeType)
+}
+
+
+
+
 $(".btn-success").click(hackaton.getWeather);
+$(".btn-primary").click(hackaton.routInfo);

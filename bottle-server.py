@@ -5,6 +5,10 @@ from bottle import route, run, template, static_file, request
 def index():
     return template("index.html")
 
+@route('/getdata', method='POST')
+def get_info(location, destination, typeOf):
+    print(location, destination, typeOf)
+    return template("index.html")
 
 @route('/static/<filename:re:.*\.js>', method='GET')
 def javascripts(filename):
