@@ -2,25 +2,19 @@ hackaton = {}
 
 hackaton.getWeather = function() {
     var cityName = $("#cityWeather").val();
-    console.log(cityName)
-
-    // $.get("localhost:8080/weather/" + cityName,
-    //  function(data, status){
-    //     alert("Data: " + data + "\nStatus: " + status);
-    //   });
-
         $.ajax({
             type: "GET",
             crossDomain: true,
-            dataType: "json",
-            url: ("localhost:8080/weather/" + cityName),
+            url: ("/weather/" + cityName),
             
             success: function (response) {
                 console.log(response)
             },
             error: function (msg) {
+                console.log("error")
             },
             complete: function (response, status) {
+                console.log("complete")
             }
         })
 }
