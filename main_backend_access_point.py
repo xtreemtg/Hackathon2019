@@ -1,15 +1,43 @@
+from itertools import permutations
 from flask import request
 from geopy import distance
 from math import sin, cos, atan2, sqrt
+from google_apis import nearby_landmarks, directions
 
-from google_apis import nearby_landmarks
+MAX_LANDMARKS = 10
 
 
-def scenic_route(start, end):
-    middle = middle_point(start, end)
-    radius = distance.great_circle(middle, end)
-    landmarks = nearby_landmarks(middle, radius=radius)
+def find_lndmrk_by_coords(coords, landmarks_to_go_through):
+    for lndmrk in landmarks_to_go_through:
+        if landmark_coords(lndmrk) == coords:
+            return lndmrk
 
+
+def landmark_coords(lndmrk):
+    return lndmrk['geometry']['location'].values()
+
+
+def scenic_route(origin, destination):
+    landmarks_to_go_through = get_landmarks_in_area(origin, destination)
+    coordinate_list = [landmark_coords(lndmrk) for lndmrk in landmarks_to_go_through]
+    shortest_path = None
+    lowest_weight = None
+    for p in permutations(coordinate_list):
+        weight = distance.great_circle(p).m
+        if lowest_weight is None or weight < lowest_weight:
+            lowest_weight = weight
+            shortest_path = p
+#     I have shortest_path!
+    ordered_landmarks = [find_lndmrk_by_coords(coords, landmarks_to_go_through) for coords in shortest_path]
+    return ordered_landmarks
+
+
+def get_landmarks_in_area(origin, destination, max_=MAX_LANDMARKS):
+    middle = middle_point(origin, destination)
+    radius = distance.great_circle(middle, destination)
+    sorted_landmarks = nearby_landmarks(middle, radius=radius)
+    landmarks_to_go_through = sorted_landmarks[:max_]
+    return landmarks_to_go_through
 
 
 def middle_point(start, end):
@@ -25,4 +53,8 @@ def middle_point(start, end):
 def flask_scenic_route():
     start = request.args.get('start')
     end = request.args.get('end')
-    return scenic_route(start, end)
+    max_ = request.args.get('max')
+    landmarks = get_landmarks_in_area(start, end, max_)
+    # landmark_trail = scenic_route(start, end)
+    trail = directions(start, end, *[landmark_coords(lndmrk) for lndmrk in landmarks])
+    return trail
