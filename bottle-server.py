@@ -1,5 +1,9 @@
 from bottle import route, run, template, static_file, request
+
+from google_apis import directions
+from main_backend_access_point import get_coords, get_landmarks_in_area, landmark_coords
 import weather
+import json
 
 
 @route('/', method='GET')
@@ -7,9 +11,15 @@ def index():
     return template("index.html")
 
 @route('/getdata', method='POST')
-def get_info(location, destination, typeOf):
-    print(location, destination, typeOf)
-    return template("index.html")
+def get_info():
+    location = request.forms.get('location')
+    destination  = request.forms.get('destination')
+    type = request.forms.get('type')
+    origin, dest = get_coords(location, destination)
+    landmarks = get_landmarks_in_area(origin, dest, type)
+    trail = directions(location, destination, *[landmark_coords(lndmrk) for lndmrk in landmarks])
+    return json.dumps(trail)
+
 
 @route('/static/<filename:re:.*\.js>', method='GET')
 def javascripts(filename):

@@ -14,9 +14,11 @@ def knapsack(W, wt, val, n):
 
     return K[n][W]
 
+
 # Driver program to test above function
-# val = [60, 100, 120]
-# wt = [10, 20, 30]
-# W = 50
-# n = len(val)
-# print(knapsack(W, wt, val, n))
+val = [60, 100, 120, 200, 300, 350]
+wt = [10, 20, 30, 40, 45, 90]
+W = 100
+n = len(val)
+print(knapsack(W, wt, val, n))
+
