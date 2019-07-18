@@ -96,7 +96,7 @@
 }
 
 .my-header {
-    font-family: 'Product Sans Thin Regular', "Helvetica Neue", sans-serif;
+    font-family: 'Product Sans Thin Regular', Quicksand, "Helvetica Neue", sans-serif;
 }
 
 .main-part {
@@ -130,8 +130,8 @@
     color: white;
     margin-top: 7rem;
     font-size: 1.4rem;
-    font-family: 'Product Sans Thin Regular', "Helvetica Neue", sans-serif;
-    width: 40%;
+    font-family: 'Product Sans Thin Regular', Quicksand, "Helvetica Neue", sans-serif;
+    width: 48%;
     min-width: 25rem;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
@@ -146,7 +146,7 @@
     margin-top: 1rem;
     margin-bottom: 0;
     font-size: 1.2rem;
-    font-family: 'Product Sans Light Regular', "Helvetica Neue", sans-serif;
+    font-family: 'Product Sans Light Regular', Quicksand, "Helvetica Neue", sans-serif;
     display: block;
 }
 
