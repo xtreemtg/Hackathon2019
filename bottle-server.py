@@ -7,8 +7,10 @@ def index():
     return template("index.html")
 
 @route('/getdata', method='POST')
-def get_info(location, destination, typeOf):
-    print(location, destination, typeOf)
+def get_info():
+    location = request.forms.get("location")
+    destination = request.forms.get("destination")
+    print(location, destination)
     return template("index.html")
 
 @route('/static/<filename:re:.*\.js>', method='GET')
