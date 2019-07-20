@@ -4,7 +4,7 @@ from geopy import distance
 from math import sin, cos, atan2, sqrt, radians, degrees
 from google_apis import nearby_landmarks, directions, get_coordinates
 
-MAX_LANDMARKS = 10
+MAX_LANDMARKS = 9
 
 
 def find_lndmrk_by_coords(coords, landmarks_to_go_through):
