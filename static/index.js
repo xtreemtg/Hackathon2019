@@ -20,26 +20,29 @@ hackaton.getWeather = function() {
         })
 }
 
-hackaton.routInfo = () => {
-
+hackaton.routInfo = (e) => {
+    e.preventDefault();
+    console.log(e)
 
     let location = $(".current-location").val();
     let destination = $('.destination').val();
     let routeType = $('.choice-rout').val();
 
-    let myData = {
-        location: location,
-        destination: destination,
-        routeType: routeType
-    }
+        const myData = {
+            location: location,
+            destination: destination,
+            routeType: routeType
+        }
 
     $.ajax({
         url: '/getdata',
         type: "POST",
         data: myData,
         dataType: "text",
-        success: function () {
-            console.log()
+        success: function (response) {
+            console.log(JSON.parse(response))
+            let map = $(".mymap");
+            map[0].src = `https://www.google.com/maps/embed/v1/directions?key=AIzaSyB1SlyO9n2uirPXWqL9O6k0k0Gx74Sqs6s&mode=walking&origin=${location}&destination=${destination}&waypoints=${JSON.parse(response).join("|")}`
         },
         error: function (msg) {
             console.log("error")
@@ -53,5 +56,8 @@ hackaton.routInfo = () => {
 }
 
 $(".btn-success").click(hackaton.getWeather);
-$(".btn-primary").click(hackaton.routInfo)
+//$(".btn-primary").click(hackaton.routInfo(e))
+document.querySelector(".btn-primary").addEventListener('click', (e) => {
+    hackaton.routInfo(e)
+})
 

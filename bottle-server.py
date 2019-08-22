@@ -14,9 +14,10 @@ def index():
 def get_info():
     location = request.forms.get('location')
     destination  = request.forms.get('destination')
-    type = request.forms.get('selection')
+    typ = request.forms.get('selection')
+    typ = 'green'
     origin, dest = get_coords(location, destination)
-    landmarks = get_landmarks_in_area(origin, dest, type)
+    landmarks = get_landmarks_in_area(origin, dest, typ)
     trail = directions(location, destination, *[landmark_coords(lndmrk) for lndmrk in landmarks])
     return json.dumps(trail)
 
