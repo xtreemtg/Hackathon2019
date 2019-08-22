@@ -2,7 +2,7 @@ from functools import reduce
 
 import googlemaps
 
-GAPI = 'AIzaSyB1SlyO9n2uirPXWqL9O6k0k0Gx74Sqs6s'
+GAPI = ''
 
 OPTIONS = {
     'green': ['amusement_park', 'bar', 'book_store', 'city_hall', 'embassy', 'insurance_agency', 'library',
